@@ -2,7 +2,7 @@
 import { Card } from "react-bootstrap";
 import { useState } from "react";
 
-export default function OneCard() {
+export default function OneCard({front, back}) {
     const [isFlipped, setIsFlipped] = useState(false);
 
     const flip = () => {
@@ -17,15 +17,13 @@ export default function OneCard() {
             <div className="flip-card-inner">
                 <Card className="flip-card-front">
                     <Card.Body>
-                        <Card.Title>Előlap cím</Card.Title>
-                        <Card.Text>Előlap leírás</Card.Text>
+                        <Card.Text>{front}</Card.Text>
                     </Card.Body>
                 </Card>
 
                 <Card className="flip-card-back">
                     <Card.Body>
-                        <Card.Title>Hátlap cím</Card.Title>
-                        <Card.Text>Hátlap leírás</Card.Text>
+                        <Card.Text>{back}</Card.Text>
                     </Card.Body>
                 </Card>
             </div>

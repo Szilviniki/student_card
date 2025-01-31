@@ -7,7 +7,7 @@ export default function Home() {
   return (
 <Row>
   <Col>
-    <OneCard/>
+    <OneCard front="valami" back="csdcwe" />
   </Col>
 </Row>
 
