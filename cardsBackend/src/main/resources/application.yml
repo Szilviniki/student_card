@@ -25,6 +25,8 @@ micronaut:
           secret:
             generator:
               secret: ${JWT_GENERATOR_SIGNATURE_SECRET:shh1w0rk4tTh3B4nkH3r3s4d0ll4r}
+  server:
+    port: 8081
 datasources:
   default:
     url: jdbc:postgresql://oli-dev.hu:5432/study
@@ -32,6 +34,8 @@ datasources:
     db-type: postgres
     username: card_backend
     password: titok
+    schema: cards
+    schema-generate: CREATE_DROP
 jpa:
   default:
     entity-scan:
