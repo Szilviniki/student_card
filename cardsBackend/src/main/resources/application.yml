@@ -18,6 +18,8 @@ micronaut:
       access: isAnonymous()
     - pattern: /swagger-ui/**
       access: isAnonymous()
+    - pattern: /public/**
+      access: isAnonymous()
     authentication: bearer
     token:
       jwt:

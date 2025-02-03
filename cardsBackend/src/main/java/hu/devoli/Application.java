@@ -4,6 +4,8 @@ import io.micronaut.runtime.Micronaut;
 import io.swagger.v3.oas.annotations.*;
 import io.swagger.v3.oas.annotations.info.*;
 
+import java.security.Security;
+
 @OpenAPIDefinition(
     info = @Info(
             title = "cardsbackend",
