@@ -1,0 +1,1 @@
+C:\Users\Levente\source\repos\student_card\student_card.csproj;x64

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="student_card.Views.LoginView"
+             Title="">
+    <!--Colors:
+        yellowish white:    FFF2D4
+        cream:              FFE7AD
+        yellow:             FEEA00
+        pink:               FF006E
+        greenish:           0E7C7B-->
+    <Grid ColumnDefinitions="*,8*,*" RowDefinitions="*,4*,*" BackgroundColor="White">
+        <Grid Grid.ColumnSpan="3" Grid.RowSpan="3" ColumnDefinitions="*,2*" RowDefinitions="2*,*,2*">
+            <Rectangle BackgroundColor="#0E7C7B" Grid.Column="1" Grid.Row="0"/>
+            <Grid Grid.ColumnSpan="2" Grid.Row="2" ColumnDefinitions="2*,*">
+                <Rectangle BackgroundColor="#FF006E" Grid.Column="0"/>
+            </Grid>
+        </Grid>
+        <Grid Grid.Column="1" Grid.Row="1" BackgroundColor="White" ColumnDefinitions="30,2*,30">
+            <VerticalStackLayout Grid.Column="1" VerticalOptions="Center">
+                <Label x:Name="LBLogin" Text="LOGIN" HorizontalOptions="Center" FontSize="40" FontAttributes="Bold" TextColor="#0E7C7B" />
+                <Line X1="50" Y1="0" X2="170" Y2="0" Stroke="#FF006E" StrokeThickness="10"/>
+
+                <Label Text="Username" HorizontalOptions="Start" FontSize="15" FontAttributes="Bold" TextColor="#0E7C7B" Margin="0,30,0,0"/>
+                <Border StrokeShape="RoundRectangle 0" HeightRequest="50">
+                    <Entry></Entry>
+                </Border>
+                <Label Text="Password" HorizontalOptions="Start" FontSize="15" FontAttributes="Bold" TextColor="#0E7C7B" Margin="0,25,0,0"/>
+                <Border StrokeShape="RoundRectangle 0" HeightRequest="50">
+                    <Entry IsPassword="True"></Entry>
+                </Border>
+                <Button Text="Login" TextColor="White" BackgroundColor="#FF006E" Margin="0,20,0,20" CornerRadius="0"/>
+                <Label Text="Don't have an account yet?" HorizontalOptions="Center" FontSize="15" FontAttributes="Bold" TextColor="#0E7C7B"/>
+                <Button Text="Sign up!" TextColor="#FF006E" BackgroundColor="Transparent" HorizontalOptions="Center" FontSize="15" HeightRequest="40" Padding="0" Margin="0,-10,0,0"/>
+            </VerticalStackLayout>
+        </Grid>
+        
+    </Grid>
+</ContentPage>
