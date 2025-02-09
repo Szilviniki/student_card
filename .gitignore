@@ -23,6 +23,7 @@ student_card/build
 # misc
 .DS_Store
 *.pem
+backend_ts
 
 # debug
 npm-debug.log*
@@ -39,3 +40,5 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+
