@@ -21,31 +21,31 @@ public class SpringBackendApplication {
 
     }
 
-    @Bean
-    public CorsConfigurationSource corsConfigSource (){
-        CorsConfiguration corsConfiguration = new CorsConfiguration();
-        corsConfiguration.addAllowedOrigin("http://localhost:3000");
-        corsConfiguration.addAllowedOrigin("https://localhost:3000");
-        corsConfiguration.addAllowedOrigin("https://localhost");
-        corsConfiguration.addAllowedMethod("*");
+//    @Bean
+//    public CorsConfigurationSource corsConfigSource (){
+//        CorsConfiguration corsConfiguration = new CorsConfiguration();
+//        corsConfiguration.addAllowedOrigin("http://localhost:3000");
+//        corsConfiguration.addAllowedOrigin("https://localhost:3000");
+//        corsConfiguration.addAllowedOrigin("https://localhost");
+//        corsConfiguration.addAllowedMethod("*");
+//
+//
+//        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+//        source.registerCorsConfiguration("/**", corsConfiguration);
+//        return source;
+//    }
 
-
-        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-        source.registerCorsConfiguration("/**", corsConfiguration);
-        return source;
-    }
-
-    @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        CorsConfigurationSource corsConfigS = corsConfigSource();
-        http.cors(cors -> cors.configurationSource(corsConfigS));
-
-        http.authorizeHttpRequests(authorizationManagerRequestMatcherRegistry -> authorizationManagerRequestMatcherRegistry
-//                        .requestMatchers("/public/**").permitAll()
-                        .anyRequest().permitAll()
-                ).csrf(AbstractHttpConfigurer::disable);
-        return http.build();
-    }
+//    @Bean
+//    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+//        CorsConfigurationSource corsConfigS = corsConfigSource();
+//        http.cors(cors -> cors.configurationSource(corsConfigS));
+//
+//        http.authorizeHttpRequests(authorizationManagerRequestMatcherRegistry -> authorizationManagerRequestMatcherRegistry
+////                        .requestMatchers("/public/**").permitAll()
+//                        .anyRequest().permitAll()
+//                ).csrf(AbstractHttpConfigurer::disable);
+//        return http.build();
+//    }
 
 
     @Bean
