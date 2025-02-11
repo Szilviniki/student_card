@@ -7,6 +7,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
@@ -20,26 +21,31 @@ public class SpringBackendApplication {
 
     }
 
-    @Bean
-    public CorsConfigurationSource corsConfigSource (){
-        CorsConfiguration corsConfiguration = new CorsConfiguration();
-        corsConfiguration.addAllowedOrigin("http://localhost:3000");
-        corsConfiguration.addAllowedMethod("*");
+//    @Bean
+//    public CorsConfigurationSource corsConfigSource (){
+//        CorsConfiguration corsConfiguration = new CorsConfiguration();
+//        corsConfiguration.addAllowedOrigin("http://localhost:3000");
+//        corsConfiguration.addAllowedOrigin("https://localhost:3000");
+//        corsConfiguration.addAllowedOrigin("https://localhost");
+//        corsConfiguration.addAllowedMethod("*");
+//
+//
+//        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+//        source.registerCorsConfiguration("/**", corsConfiguration);
+//        return source;
+//    }
 
-
-        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-        source.registerCorsConfiguration("/**", corsConfiguration);
-        return source;
-    }
-
-    @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        CorsConfigurationSource corsConfigS = corsConfigSource();
-        http.cors(cors -> cors.configurationSource(corsConfigS));
-
-        http.authorizeHttpRequests(authorizationManagerRequestMatcherRegistry -> authorizationManagerRequestMatcherRegistry.requestMatchers("/public/**").permitAll().anyRequest().anonymous());
-        return http.build();
-    }
+//    @Bean
+//    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+//        CorsConfigurationSource corsConfigS = corsConfigSource();
+//        http.cors(cors -> cors.configurationSource(corsConfigS));
+//
+//        http.authorizeHttpRequests(authorizationManagerRequestMatcherRegistry -> authorizationManagerRequestMatcherRegistry
+////                        .requestMatchers("/public/**").permitAll()
+//                        .anyRequest().permitAll()
+//                ).csrf(AbstractHttpConfigurer::disable);
+//        return http.build();
+//    }
 
 
     @Bean
