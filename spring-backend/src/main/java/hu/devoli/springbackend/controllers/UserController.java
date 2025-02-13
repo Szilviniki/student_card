@@ -4,6 +4,7 @@ import hu.devoli.springbackend.entities.User;
 import hu.devoli.springbackend.entities.dataaccess.UserRepository;
 import hu.devoli.springbackend.records.UserResponse;
 import hu.devoli.springbackend.services.UserService;
+import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -39,8 +40,13 @@ public class UserController {
       return userService.findById(id);
     }
 
-//    @GetMapping("/index")
-//    public ResponseEntity<Pageable> Index(@RequestParam(name = "amount", defaultValue = "20") int amount){
-//        Iterable<User> queryResults = userRepository.findAll();
-//    }
+    @GetMapping("/index")
+    public ResponseEntity<Page<UserResponse>> Index(@RequestParam(defaultValue = "1") int page,
+                                      @RequestParam(defaultValue = "10")int size,
+                                      @RequestParam(defaultValue = "name")String sortBy,
+                                      @RequestParam(defaultValue = "asc")String sortDirection
+                                          ){
+        return ResponseEntity.ok()
+                .body(userService.getusersPage(page, size,sortBy,sortDirection));
+    }
 }
