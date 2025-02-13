@@ -4,6 +4,9 @@ import hu.devoli.springbackend.entities.User;
 import hu.devoli.springbackend.entities.dataaccess.UserRepository;
 import hu.devoli.springbackend.records.UserResponse;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Transient;
 import org.springframework.stereotype.Service;
@@ -37,8 +40,10 @@ public class UserService {
 
     }
 
-//    public Page<UserResponse> getusersPage(){
-//
-//    }
+    public Page<UserResponse> getusersPage(int pageNumber, int pageSize, String sortBy, String sortDirection){
+        Sort sort = Sort.by(Sort.Direction.fromString(sortDirection), sortBy);
+        Pageable pageable = PageRequest.of(pageNumber-1, pageSize, sort);
+        return userRepository.findAllBy(pageable);
+    }
 
 }

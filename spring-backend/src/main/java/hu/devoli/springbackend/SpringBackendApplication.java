@@ -48,18 +48,18 @@ public class SpringBackendApplication {
 //    }
 
 
-    @Bean
-    public CommandLineRunner demo(UserRepository repository) {
-        return (args) -> {
-            // save a few customers
-            repository.save(new User("John Doe", "johndoe@example.com", "password"));
-            repository.save(new User("Jane Doe", "janedoe@example.com", "password"));
-            repository.save(new User("Alice Smith", "alicesmith@example.com", "password"));
-            repository.save(new User("Bob Johnson", "bobjohnson@example.com", "password"));
-            repository.save(new User("Charlie Brown", "charliebrown@example.com", "password"));
-
-        };
-    }
+//    @Bean
+//    public CommandLineRunner demo(UserRepository repository) {
+//        return (args) -> {
+//            // save a few customers
+//            repository.save(new User("John Doe", "johndoe@example.com", "password"));
+//            repository.save(new User("Jane Doe", "janedoe@example.com", "password"));
+//            repository.save(new User("Alice Smith", "alicesmith@example.com", "password"));
+//            repository.save(new User("Bob Johnson", "bobjohnson@example.com", "password"));
+//            repository.save(new User("Charlie Brown", "charliebrown@example.com", "password"));
+//
+//        };
+//    }
 
 }
 
